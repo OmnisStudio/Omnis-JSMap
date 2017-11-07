@@ -1,5 +1,5 @@
 # Omnis-JSMap
-Library uses the JS Map control that integrates the Google Maps API to add a map to your JavaScript forms. 
+Library uses the JS Map control that integrates the Google Maps API to add a map to your JavaScript forms. In order to use the Map control, you need to register with Google to obtain a map API key, which can be entered in the $apikey property of the control. Specifically, you need to obtain a “Google Maps JavaScript API” key, or Browser API key. In addition, if you want to use the Geocode function you need to obtain a separate Geocode API key. 
 
 The app can be viewed here http://tinyurl.com/jsgallery8, click on ‘Map’ in the list.
 
