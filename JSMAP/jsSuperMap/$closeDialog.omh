@@ -1,0 +1,6 @@
+;  close search dialog and perform search
+
+Do $cinst.$clientcommand('subformset_remove',row('jsMapSet'))
+If len(pAddress)
+	Do method $geocode (pAddress)
+End If

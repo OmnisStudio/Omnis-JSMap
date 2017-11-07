@@ -1,0 +1,18 @@
+;  open search dialog
+
+Do $cwind.$setCallingInst($cinst)
+
+Do lRow.$define(lSetName,lParent,lFlags,lOrderVar,lFormList)
+Do lFormList.$define(lID,lClassName,lParams,lTitle,lLeft,lTop,lWidth,lHeight)
+
+Calculate lWidth as $clib.$classes.[pClassName].$width
+Calculate lHeight as $clib.$classes.[pClassName].$height
+
+Do lFormList.$add(1,pClassName,,pTitle,kSFScenter,kSFScenter,lWidth,lHeight)
+Do lRow.$assigncols("jsMapSet",,,,lFormList)
+Do $cinst.$clientcommand("subformset_add",lRow)
+
+;  use subformset_formadd to use modal parameter
+Do lRow.$define(lSetName,lUniqueID,lClassName,lParams,lTitle,lLeft,lTop,lWidth,lHeight,lModal)
+Do lRow.$assigncols('jsMapSet',2,pClassName,"$cinst.$getgeocodeapikey",pTitle,kSFScenter,kSFScenter,lWidth,lHeight,kTrue)
+Do $cinst.$clientcommand("subformset_formadd",lRow)

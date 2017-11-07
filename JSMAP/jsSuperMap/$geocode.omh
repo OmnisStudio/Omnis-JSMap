@@ -1,0 +1,30 @@
+;  call google geocde to find address
+
+Do lHeaders.$define(lName,lValue)
+
+If iUseHTTPWorker     ;; Use HTTP Worker (requires java)
+	Calculate lAddressEncoded as OWEB.$escapeuritext(pAddress)
+	
+	Calculate lUri as con("https://maps.googleapis.com/maps/api/geocode/json?address=",lAddressEncoded,"&key=",iGeocodeApikey)
+	Do $extobjects.OWEB.$objects.HTTPClientWorker.$newref() Returns iHttp     ;; 	;  Do $objects.oHTTPWorker.$newref() Returnｓ iHttp
+	Calculate iHttp.$callbackinst as $cinst     ;; Do iHttp.$setCallingInst($cinst)
+	Do iHttp.$init(lUri,kOWEBhttpMethodGet,lHeaders,"") Returns lOk
+	Do iHttp.$start() Returns lOk
+Else
+	Calculate lUri as con("/maps/api/geocode/json")
+	Calculate lhost as 'maps.googleapis.com'
+	
+	Do lCGIList.$define(lCGIAttr,lCGIVal)
+	Do lCGIList.$add('address',pAddress)
+	Do lCGIList.$add('key',iGeocodeApikey)
+	
+	HTTPGet (lhost,lUri,lCGIList,lHeaders,lService,kTrue,kTrue) Returns lSocket
+	HTTPRead (lSocket,lBuffer)
+	HTTPClose (lSocket)
+	
+	Calculate lBuffer as mid(lBuffer,pos('[',lBuffer))
+	Calculate lBuffer as mid(lBuffer,1,rpos(']',lBuffer))
+	Calculate lRow as OJSON.$jsontolistorrow(lBuffer,cErrorText)
+	
+	Do method addGeocodeMarker (lRow.C1)
+End If

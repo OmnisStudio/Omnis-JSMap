@@ -1,0 +1,4 @@
+On evClick
+	Calculate $cinst.$objs.map.$mapmarkers as ""
+	Do method getDefaultMarkers
+	Calculate $cinst.$objs.map.$mapmarkers as "iMapMarkers"

@@ -1,0 +1,25 @@
+;  Extract details from results, add marker and zoom in
+
+Calculate geocode_row as geocode_results
+If geocode_row.$colcount>0
+	Calculate geocode_geometery as geocode_row.geometry
+	Calculate geocode_address as geocode_row.formatted_address
+	Calculate geocode_location as geocode_geometery.location
+	Calculate geocode_latlong as con(geocode_location.lat,':',geocode_location.lng)
+	
+	Do iSymbolTypes.$loadcols()
+	
+	Do iMapMarkers.$clear()
+	Do iMapMarkers.$add(geocode_latlong,"New Marker","New Marker",con("<div id='content'><font size='2' face='verdana,arial,helvetica,sans-serif'><h3 id='firstHeading'>Search Result</h3><div id='bodyContent'><p>",geocode_latlong,"<br>",geocode_address,"</p></div></font></div>"),iSymbolIconUrl,iSymbolCustom)
+	
+	If iUseHTTPWorker
+		;  need to push results to client when returned by HTTP Worker object
+		Do $cinst.$pushdata(row(iMapMarkers,geocode_latlong))
+	Else
+		Calculate $cinst.$objs.Map.$mapmarkers as "iMapMarkers"
+		Calculate $cinst.$objs.Map.$latlong as geocode_latlong
+		
+		Calculate $cinst.$objs.Map.$::zoom as 16
+		Do iZoomLevels.$search(iZoomLevel=16,kTrue,kFalse,kFalse,kFalse)
+	End If
+End If

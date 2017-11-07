@@ -1,0 +1,8 @@
+;  HTTP Worker results returned, only used if iUseWorker is set to kTrue in $geocode
+
+Calculate lResponse as pResults
+Calculate lResponseHeaders as lResponse.responseHeaders
+If pos("application/json",lResponseHeaders.contenttype)
+	Do OJSON.$jsontolistorrow(lResponse.responseContent,geocode_error) Returns geocode_results
+	Do method addGeocodeMarker (geocode_results.C1.C1)
+End If

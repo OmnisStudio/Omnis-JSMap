@@ -1,0 +1,2 @@
+On evClick
+	Do $cinst.$objs.Map.$maptype.$assign([iMapTypes.iMapType])

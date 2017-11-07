@@ -1,0 +1,10 @@
+On evClick
+	Do iLocations.$loadcols()
+	If iLocation='All Markers'
+		Calculate $cinst.$objs.map.$fitmaptomarkers as kTrue
+		Do iZoomLevels.$line.$assign(0)
+	Else
+		Calculate $cinst.$objs.map.$::zoom as iLocationZoom
+		Calculate $cinst.$objs.map.$latlong as iLatLong
+		Do iZoomLevels.$search(iZoomLevel=iLocationZoom,kTrue,kFalse,kFalse,kFalse)
+	End If

@@ -1,0 +1,48 @@
+;  Enter your initialization code here
+
+Do iMapTypes.$define(iMapType)
+Do iMapTypes.$add(kJSMapTypeRoad)
+Do iMapTypes.$add(kJSMapTypeSatellite)
+Do iMapTypes.$add(kJSMapTypeHybrid)
+Do iMapTypes.$add(kJSMapTypeTerrain)
+Do iMapTypes.$line.$assign(1)
+
+Do iLocations.$define(iLocation,iLatLong,iLocationZoom)
+Do iLocations.$add('All Offices','52.22344629865449:1.4924045652151108',2)
+Do iLocations.$add('Omnis UK','52.22344629865449:1.4924045652151108',16)
+Do iLocations.$add('Omnis France','48.852353:2.397496300000057',16)
+Do iLocations.$add('Omnis Germany','53.63778:10.015070000000037',16)
+Do iLocations.$add('All Markers','',0)
+Do iLocations.$line.$assign(1)
+
+Do iZoomLevels.$define(iZoomLevel)
+Do iZoomLevels.$add('2')
+Do iZoomLevels.$add('3')
+Do iZoomLevels.$add('4')
+Do iZoomLevels.$add('8')
+Do iZoomLevels.$add('16')
+Do iZoomLevels.$line.$assign(1)
+
+Do iSymbolTypes.$define(iSymbolName,iSymbolIconUrl,iSymbolCustom)
+Do iSymbolTypes.$add('Default','','')
+Do iSymbolTypes.$add('Circle','','path:google.maps.SymbolPath.CIRCLE|fillColor: blue|fillOpacity:0.25| scale: 12|strokeColor:black|strokeWeight: 1')
+Do iSymbolTypes.$add('Backward Closed Arrow','','path:google.maps.SymbolPath.BACKWARD_CLOSED_ARROW|fillColor: red|fillOpacity:0.5| scale: 4|strokeColor:black|strokeWeight: 1')
+Do iSymbolTypes.$add('Backward Open Arrow','','path:google.maps.SymbolPath.BACKWARD_OPEN_ARROW| scale: 3|strokeColor:red|strokeWeight: 2')
+Do iSymbolTypes.$add('Forward Closed Arrow','','path:google.maps.SymbolPath.FORWARD_CLOSED_ARROW|fillColor: red|fillOpacity:0.5| scale: 4|strokeColor:black|strokeWeight: 1')
+Do iSymbolTypes.$add('Forward Open Arrow','','path:google.maps.SymbolPath.FORWARD_OPEN_ARROW| scale: 3|strokeColor:red|strokeWeight: 2')
+Do iSymbolTypes.$add('Star','','path:M 125,5 155,90 245,90 175,145 200,230 125,180 50,230 75,145 5,90 95,90 z|fillColor: yellow|fillOpacity:0.75| scale: 0.1|strokeColor:orange|strokeWeight: 1|anchor:122,115')
+Do iSymbolTypes.$add('Omnis Icon',iconurl(2033),'')
+Do iSymbolTypes.$line.$assign(1)
+
+Do iMapMarkers.$define(iMarkerLatLong,iMarkerTitle,iMarkerTag,iMarkerHtml,iMarkerIcon,iMarkerCustom)
+Do method getDefaultMarkers
+
+Do iPolyMarkers.$define(iPolyLatLong,iPolyStroke,iPolyOpacity,iPolyWeight,iPolyFill,iPolyFillOpacity,iPolyTag)
+Do method getPolyMarkers
+
+Calculate iGeocodeApikey as $cinst.$objs.Map.$userinfo     ;; https://developers.google.com/maps/documentation/geocoding/start
+
+Calculate iUseHTTPWorker as kFalse     ;; use HTTP Worker object (requires javascript) or HTTPGet command to call Google Maps Geocoding API
+If iUseHTTPWorker
+	Do $cinst.$clientcommand("openpush",row())
+End If

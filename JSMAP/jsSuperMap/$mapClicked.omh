@@ -1,0 +1,10 @@
+Do iSymbolTypes.$loadcols()
+
+If iAddMarkers
+	Do iMapMarkers.$clear()
+	Calculate lLat as mid(pLatlong,1,pos(':',pLatlong)-1)
+	Calculate lLong as mid(pLatlong,pos(':',pLatlong)+1)
+	
+	Do iMapMarkers.$add(pLatlong,"New Marker","New Marker",con("<div id='content'><font size='2' face='verdana,arial,helvetica,sans-serif'><h3 id='firstHeading'>New Marker</h3><div id='bodyContent'><p>","Latitude ",lLat,"<br>Longitude ",lLong,"</p></div></font></div>"),iSymbolIconUrl,iSymbolCustom)
+	Calculate $cinst.$objs.map.$mapmarkers as "iMapMarkers"
+End If

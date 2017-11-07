@@ -1,0 +1,6 @@
+On evClick
+	If len(iGeocodeApikey)=0
+		Do $cinst.$showmessage('This option uses Google Geocode, please enter your API Key into the $userinfo propety of the Map Control on form jsMap and try again.','Google Geocode')
+	Else
+		Do method openDialog ('jsMapSearch','Google Geocode')
+	End If

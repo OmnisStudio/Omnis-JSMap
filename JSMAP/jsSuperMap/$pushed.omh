@@ -1,0 +1,9 @@
+;  if using HTTP Worker object, push results to client
+
+Calculate iMapMarkers as pRow.C1
+
+Calculate $cinst.$objs.Map.$mapmarkers as "iMapMarkers"
+Calculate $cinst.$objs.Map.$latlong as pRow.C2     ;; geocode_latlong
+
+Calculate $cinst.$objs.Map.$::zoom as 16
+Do iZoomLevels.$search(iZoomLevel=16,kTrue,kFalse,kFalse,kFalse)

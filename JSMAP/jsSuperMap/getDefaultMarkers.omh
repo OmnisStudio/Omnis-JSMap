@@ -1,0 +1,6 @@
+Do iSymbolTypes.$loadcols()
+
+Do iMapMarkers.$clear()
+Do iMapMarkers.$add("52.22344629865449:1.4924045652151108","Omnis UK","Omnis UK","<div id='content'><img src='http://www.omnis.net/images/flag_uk.png'><font size='2' face='verdana,arial,helvetica,sans-serif'><h3 id='firstHeading'>Omnis UK</h3><div id='bodyContent'><p>Carlton Park House<br>Saxmundham<br>Suffolk IP17 2NL<br>United Kingdom</p></div></font></div>",iSymbolIconUrl,iSymbolCustom)
+Do iMapMarkers.$add("48.852353:2.397496300000057","Omnis France","Omnis France","<div id='content'><img src='http://www.omnis.net/images/flag_fr.png'><font size='2' font face='verdana,arial,helvetica,sans-serif'><h3 id='firstHeading'>Omnis France</h3><div id='bodyContent'><p>47 Boulevard de Charonne<br>75011 PARIS France </p></div></font></div>",iSymbolIconUrl,iSymbolCustom)
+Do iMapMarkers.$add("53.63778:10.015070000000037","Omnis Germany","Omnis Germany","<div id='content'><img src='http://www.omnis.net/images/flag_de.png'><font size='2' font face='verdana,arial,helvetica,sans-serif'><h3 id='firstHeading'>Omnis Germany</h3><div id='bodyContent'><p>Langenhorner Chaussee 40<br>22335 Hamburg, Germany </p></div></font></div>",iSymbolIconUrl,iSymbolCustom)
