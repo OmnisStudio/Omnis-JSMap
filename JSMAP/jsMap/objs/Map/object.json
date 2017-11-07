@@ -1,0 +1,63 @@
+{
+	"ident": 1001,
+	"order": 1,
+	"objtype": "kComponent",
+	"componentlib": "jsmap",
+	"componentctrl": "Map Control",
+	"properties": {
+		"::zoom": 2,
+		"alpha": 255,
+		"apikey": "",
+		"backalpha": 255,
+		"backcolor": "kColorWindow",
+		"contextmenu": "",
+		"cssclassname": "",
+		"dataname": "",
+		"desgroup": 0,
+		"designactive": true,
+		"deslock": false,
+		"disabledefaultcontextmenu": false,
+		"disablesystemfocus": false,
+		"dropmode": "kAcceptNone",
+		"enabled": true,
+		"events": "evMapClicked,evPolygonClicked",
+		"fieldstyle": "",
+		"fitmaptomarkers": 0,
+		"latlong": "52.22344629865449:1.4924045652151108",
+		"mapmarkers": "iMapMarkers",
+		"mappolys": "iPolyMarkers",
+		"maptype": "kJSMapTypeRoad",
+		"maptypecontrol": true,
+		"objlink": 0,
+		"pancontrol": true,
+		"preventlayoutanimation": false,
+		"scalecontrol": true,
+		"streetviewcontrol": true,
+		"tooltip": "",
+		"userinfo": "",
+		"visible": true,
+		"zoomcontrol": "kJSMapZoomLarge"
+	},
+	"layout": {
+		"310": {
+			"left": 4,
+			"top": 120,
+			"width": 300,
+			"height": 185,
+			"dragborder": false,
+			"edgefloat": "kEFrightBottom",
+			"errortextpos": "kJSErrorTextPosUnder",
+			"visible": true
+		},
+		"600": {
+			"left": 10,
+			"top": 115,
+			"width": 400,
+			"height": 380,
+			"dragborder": false,
+			"edgefloat": "kEFrightBottom",
+			"errortextpos": "kJSErrorTextPosUnder",
+			"visible": true
+		}
+	}
+}

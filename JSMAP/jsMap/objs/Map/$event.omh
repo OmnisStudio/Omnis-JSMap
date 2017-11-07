@@ -1,0 +1,5 @@
+On evMapClicked
+	Do method $cinst.$mapClicked
+	
+On evPolygonClicked
+	Do $cinst.$showmessage(con('Polygon ',pPoly,' clicked.'),'JS Map')
