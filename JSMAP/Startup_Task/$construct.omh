@@ -1,0 +1,5 @@
+If len($clib.$classes.jsMap.$objs.Map.$apikey)=0
+	Modify class {jsMap}
+Else
+	Do $clib.$remoteforms.jsMap.$open("*")
+End If
